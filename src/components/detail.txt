@@ -1,0 +1,2 @@
+all the components that are not specified to a particular page
+are put inside the components  
