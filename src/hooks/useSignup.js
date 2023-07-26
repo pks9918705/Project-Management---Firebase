@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
-import { ProjectAuth, ProjectStorage, ref } from "../firebase/config";
+import { ProjectAuth, ProjectStorage, ref ,ProjectFirestore, ProjectFirebase} from "../firebase/config";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { useAuthContext } from "./useAuthContext";
 import { uploadBytes, getDownloadURL } from "firebase/storage";
+import { doc, setDoc } from "firebase/firestore"; 
 
 // Custom hook for handling user signup
 const useSignup = () => {
@@ -56,8 +57,18 @@ const useSignup = () => {
         photoURL: photoURL
       });
 
-      console.log(res.user.displayName);
-      console.log(res.user.photoURL);
+      // console.log(res.user.displayName);
+      // console.log(res.user.photoURL);
+
+      //create a user document
+
+      await setDoc(doc(ProjectFirestore, " users", `${res.user.uid}`), {
+        online:true,
+        username,
+        photoURL:res.user.photoURL
+
+      });
+
 
       // Dispatch a LOGIN action to notify the global state that the user is logged in
       dispatch({ type: "LOGIN", payload: res.user });
