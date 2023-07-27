@@ -1,20 +1,35 @@
 import { useEffect, useState } from "react";
 import { useAuthContext } from "./useAuthContext";
 import { signOut } from "firebase/auth";
-import { ProjectAuth  } from "../config/firebaseConf";
+import { ProjectAuth } from "../firebase/config"
+
+
 // const auth = getAuth();
 
 const useLogout = () => {
     const [isCancelled, setIsCancelled] = useState(false)
     const [error, setError] = useState(null)
     const [isPending, setIsPending] = useState(false)
-    const { dispatch } = useAuthContext()
+    const { dispatch, user } = useAuthContext()
+
 
     const logout = async () => {
         setError(null)
         setIsPending(true)
         //sign the user out
         try {
+            console.log("me clicked")
+
+            console.log("__",user.uid)
+            // const typeOfUserUid = typeof user.uid;
+            // console.log(typeOfUserUid);
+            // const washingtonRef = doc(ProjectFirestore, "users", user.uid);
+
+             // console.log("****",washingtonRef)
+            // await updateDoc(washingtonRef, {
+            //     online: false
+            // });
+
             await signOut(ProjectAuth)
 
             //dispatch logout action
