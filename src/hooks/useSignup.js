@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ProjectAuth, ProjectStorage, ref ,ProjectFirestore, ProjectFirebase} from "../firebase/config";
+import { ProjectAuth, ProjectStorage, ref ,ProjectFirestore } from "../firebase/config";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { useAuthContext } from "./useAuthContext";
 import { uploadBytes, getDownloadURL } from "firebase/storage";
@@ -62,7 +62,7 @@ const useSignup = () => {
 
       //create a user document
 
-      await setDoc(doc(ProjectFirestore, " users", `${res.user.uid}`), {
+      await setDoc(doc(ProjectFirestore, " Users", `${res.user.uid}`), {
         online:true,
         username,
         photoURL:res.user.photoURL

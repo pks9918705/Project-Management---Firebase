@@ -8,6 +8,7 @@ import Project from './pages/project/Project';
 import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
 import { useAuthContext } from './hooks/useAuthContext';
+import OnlineUsers from './components/OnlineUsers';
 
 function App() {
 
@@ -17,11 +18,13 @@ function App() {
     <div className="App">
 
       <Router>
-        <Sidebar />
+        {user && <Sidebar /> }
+        
 
         <div className="container">
           {authIsReady && <>
             <Navbar />
+            <OnlineUsers/>
             <Routes>
               <Route path="/login" element={!user ? <Login/> : <Dashboard />} />
               <Route path="/signup" element={!user ? <Signup /> : <Dashboard />} />

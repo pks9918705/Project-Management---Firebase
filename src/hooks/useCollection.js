@@ -1,14 +1,14 @@
- 
-
 import { useEffect, useRef, useState } from "react";
-import { ProjectFirestore } from "../config/firebaseConf";
+import { ProjectFirestore } from "../firebase/config"
 import { collection, onSnapshot,query, where ,orderBy } from "firebase/firestore";
 
 
 // Custom hook to interact with a Firestore collection
 export const useCollection = (collectionName,_query,_orderBy) => {
+
   // State to store the retrieved documents from the Firestore collection
   const [documents, setDocuments] = useState(null);
+
   // State to handle errors if any occur during data retrieval
   const [error, setError] = useState(null);
 

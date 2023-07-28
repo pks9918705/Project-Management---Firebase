@@ -5,13 +5,14 @@ import { getFirestore, Timestamp } from "firebase/firestore"; // Correctly impor
 import { getStorage ,ref} from "firebase/storage"; // Removed redundant 'import { ref } from "firebase/storage";'
 
 // Your web app's Firebase configuration
+ 
 const firebaseConfig = {
-  apiKey: "AIzaSyCARFE9tNj4PMlIwht7UsNpi4_bXEx3tec",
-  authDomain: "thedojo-90263.firebaseapp.com",
-  projectId: "thedojo-90263",
-  storageBucket: "thedojo-90263.appspot.com",
-  messagingSenderId: "987283745088",
-  appId: "1:987283745088:web:061fb65ac0bd03fc9d32a5"
+  apiKey: "AIzaSyB6eekN0sSphhXdjqi4xPo3KWYvHWzDVHM",
+  authDomain: "project-management-89428.firebaseapp.com",
+  projectId: "project-management-89428",
+  storageBucket: "project-management-89428.appspot.com",
+  messagingSenderId: "903875243373",
+  appId: "1:903875243373:web:e629feb2ee23b5e456be64"
 };
 
 // Initialize Firebase
